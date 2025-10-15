@@ -12,3 +12,4 @@ data = response.json()
 
 print("SOL price (USD):", data['data']['SOL']['quote']['USD']['price'])
 # print(data)
+#I accidentally added my API key, whoopsie!
