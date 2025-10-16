@@ -8,5 +8,8 @@ PAYLOAD = {
     "userID": 1
 }
 
-RESPONSE = requests.post(URL, json=PAYLOAD)
-print(RESPONSE.json())
+try:
+    RESPONSE = requests.post(URL, json=PAYLOAD, timeout=1)
+    print(RESPONSE.json())
+except requests.exceptions.Timeout():
+    print("The request timed out. Try again later")
