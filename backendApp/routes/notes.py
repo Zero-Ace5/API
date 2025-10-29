@@ -25,8 +25,8 @@ def add_note():
 
 @notes_bp.route("/<int:note_id>", methods=["DELETE"])
 def delete_note(note_id):
-    note = Note.query.get(note_id)
-    if not note:
+    note = db.session.get(Note, note_id)
+    if note is None:
         return jsonify({"error": "Invalid Note ID"}), 404
     db.session.delete(note)
     db.session.commit()
